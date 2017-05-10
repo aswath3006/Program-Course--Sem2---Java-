@@ -9,10 +9,10 @@ class queue_op
 
         void enqueue(int value)
             {
-                if(front>=size-1) //or rear
+                if(front>=size) //or rear
                     System.out.print("\nQueue is full.\n");
                 else
-                        array[++front]=value;
+                    array[++front]=value;
             }
         void dequeue()
             {
@@ -32,8 +32,11 @@ class queue_op
                         System.out.print("\nValues in the queue are:\n");
                         for(int i=rear;i<=front;i++)
                             {
-                                if(rear==-1)
-                                    continue;
+                                if(i==-1)
+                                    {
+                                        //i++;
+                                        continue;
+                                    }
                                 System.out.print(array[i]+"\n");
                             }
                     }
@@ -47,9 +50,15 @@ class queue
                 queue_op Q = new queue_op();
                 System.out.print("\n\nQueue");
                 Q.display();
+                System.out.print(Q.front);
                 Q.enqueue(6);
+                System.out.print(Q.front);
                 Q.enqueue(7);
+                System.out.print(Q.front);
                 Q.enqueue(9);
+                System.out.print(Q.front);
+                System.out.print("\n\nQueue");
+                Q.display();
                 Q.dequeue();
                 Q.dequeue();
                 Q.display();
